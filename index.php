@@ -11,14 +11,44 @@
     <?php require_once 'example_persons_array.inc.php' ?>
     <div class="flex-container">
 
-                <div class="fullname">
-                    <?php echo getFullnameFromParts('Семенов', 'Семен', 'Семенович')."<br/>"; ?>
-                    <?php print_r(getPartsFromFullname('Иванов Иван Иванович')); echo "<br/>"; ?>
-                    <?php echo getShortName('Семенова Анна Ивановна')."<br/>"; ?>
-                    <?php getGenderFromName('Иванов Ирин Арсеньевна')."<br/>"; ?>
-                    <?php echo getGenderDescription($example_persons_array);?>
-                    <?php echo getPerfectPartner('СемеНов', 'СЕМЁН', 'СеменовиЧ', $example_persons_array);?>
-                </div>
+        <div>
+            <?php
+
+                echo 'Результат выполнения функции <strong>getFullnameFromParts("Семенов", "Семен", "Семенович")</strong>:<br/>';  
+                echo getFullnameFromParts("Семенов", "Семен", "Семенович")."<br/>"; 
+
+            ?>
+            <?php
+
+                echo 'Результат выполнения функции <strong>print_r(getPartsFromFullname("Иванов Иван Иванович"))</strong>:<br/>';
+                print_r(getPartsFromFullname("Иванов Иван Иванович")); echo "<br/>"; 
+
+            ?>
+            <?php
+
+                echo 'Результат выполнения функции <strong>getShortName("Семенова Анна Ивановна")</strong>:<br/>';
+                echo getShortName("Семенова Анна Ивановна")."<br/>";
+
+            ?>
+            <?php
+
+                echo 'Результат выполнения функции <strong>getGenderFromName("Иванова Ирина Арсеньевна")</strong>:<br/>';
+                echo getGenderFromName("Иванова Ирина Арсеньевна")."<br/>";
+
+            ?>
+            <?php
+
+                echo 'Результат выполнения функции <strong>getGenderDescription($example_persons_array)</strong>:<br/>';
+                echo getGenderDescription($example_persons_array)."<br/>";
+
+            ?>
+            <?php
+
+                echo 'Результат выполнения функции <strong>getPerfectPartner("СемеНов", "СЕМЁН", "СеменовиЧ", $example_persons_array)</strong>:<br/>';
+                echo getPerfectPartner("СемеНов", "СЕМЁН", "СеменовиЧ", $example_persons_array)."<br/>";
+
+            ?>
+        </div>
 
     </div>
 

@@ -20,7 +20,7 @@ function getFullnameFromParts($partSurname = " ", $partName = " ", $partPatronom
 function getShortName($fullName){
 
     $shortName = getPartsFromFullname($fullName);
-    $firstSymbolSurname = $shortName['surname'][0].$shortName['surname'][1]; // Из-за кодировки костыль, не нашел нормального решения
+    $firstSymbolSurname = substr($shortName['surname'], 0, 2);
     return ($shortName['name']." ".$firstSymbolSurname.'.');
 }
 
@@ -60,21 +60,15 @@ function getGenderDescription($personsArray){
     // Основной способ по заданию
     $numberMen = count(array_filter($personsArray, function($partArray){
         $currentStep = getGenderFromName($partArray['fullname']);
-    if ($currentStep == '1')
-        return true;
-    else 
-        return false;
+        return ($currentStep == '1') ? true : false;
     }));
     $numberWomen = count(array_filter($personsArray, function($partArray){
         $currentStep = getGenderFromName($partArray['fullname']);
-    if ($currentStep == '-1')
-        return true;
-    else 
-        return false;
+        return ($currentStep == '-1') ? true : false;
     }));
 
 /*
-    // Альтернативный способ подсчета, этот проще или основной способ не так задумывался, ИМХО
+    // Альтернативный способ подсчета, этот оптимальнее или основной способ не так задумывался, ИМХО
     
     foreach($personsArray as $elementArray){
         $temp = getGenderFromName($elementArray['fullname']);
